@@ -1,4 +1,4 @@
-// Package palindromenumber https://leetcode.com/problems/string-to-integer-atoi/description/
+// Package palindromenumber https://leetcode.com/problems/palindrome-number/description/
 package palindromenumber
 
 /*

@@ -19,6 +19,7 @@ Output: "bb"
 */
 
 func longestPalindrome(s string) string {
+	/* My Org Solution
 	ans := ""
 	for i := 0; i < len(s); i++ {
 		start := max(i, len(ans))
@@ -31,14 +32,30 @@ func longestPalindrome(s string) string {
 	}
 
 	return ans
+	*/
+
+	// After Read Solution: Use Expand Around Center
+	if len(s) == 0 {
+		return s
+	}
+	var start, end int
+	for i := 0; i < len(s); i++ {
+		expand := max(expandAroundCenter(s, i, i), expandAroundCenter(s, i, i+1))
+		if expand > end-start {
+			start = i - (expand-1)/2
+			end = i + expand/2
+		}
+	}
+	return s[start : end+1]
 }
 
-func isPalindroe(s string) bool {
-	r := []rune(s)
-	for i, j := 0, len(r)-1; i < len(r)/2; i, j = i+1, j-1 {
-		r[i], r[j] = r[j], r[i]
+func expandAroundCenter(s string, left int, right int) int {
+	L, R := left, right
+	for L >= 0 && R < len(s) && s[L] == s[R] {
+		L--
+		R++
 	}
-	return s == string(r)
+	return R - L - 1
 }
 
 func max(a int, b int) int {
