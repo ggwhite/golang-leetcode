@@ -35,7 +35,6 @@ func (n *ListNode) String() string {
 }
 
 func reverseKGroup(head *ListNode, k int) *ListNode {
-	fmt.Println(head)
 	if head == nil || k == 0 || k == 1 {
 		return head
 	}
