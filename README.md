@@ -1,3 +1,3 @@
 # Leetcode
 
-practice leetcode problems in golang
+Practice leetcode problems in golang
